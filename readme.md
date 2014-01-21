@@ -39,7 +39,7 @@ var dome = {
     },
     
     //this task will generate /docs/sanitized-filename/index.html 
-    //of all files in ./docs directory.
+    //for all files in ./docs directory.
     "/docs/": {
         template: "docs.html",
         content: "./docs"
