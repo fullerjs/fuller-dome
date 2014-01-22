@@ -44,14 +44,14 @@ var Dome = function(fuller, plan) {
 		fileTools = fuller.getTool('files');
 	}
 
-	this.dst = fuller.pathes.dst;
-	this.home = fuller.options.home;
-	this.title = fuller.options.title;
+	this.dst = plan.defaults.dst;
+	this.home = plan.defaults.home;
+	this.title = plan.defaults.title;
 
 	this.tasks = this.getFullTasks(plan.tasks);
 
-	this.defaultTemplate = fuller.options.defaultTemplate;
-	var templatePath = path.join(fuller.pathes.home, fuller.options.templates);
+	this.defaultTemplate = plan.defaults.defaultTemplate;
+	var templatePath = path.join(fuller.pathes.home, plan.defaults.templates);
 	this.env = new nunjucks.Environment(new nunjucks.FileSystemLoader(templatePath));
 };
 
