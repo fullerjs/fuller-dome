@@ -1,6 +1,6 @@
 {
 	"name": "fuller-dome",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"license" : "BSD",
 	"description": "Fuller tool: static website generator",
 	"keywords": ["static", "fuller", "site", "website", "markdown", "highlight"],
