@@ -51,8 +51,8 @@ var Dome = function(fuller, plan) {
 	this.tasks = this.getFullTasks(plan.tasks);
 
 	this.defaultTemplate = plan.defaults.defaultTemplate;
-	var templatePath = path.join(fuller.pathes.home, plan.defaults.templates);
-	this.env = new nunjucks.Environment(new nunjucks.FileSystemLoader(templatePath));
+	this.templatesPath = path.join(fuller.pathes.home, plan.defaults.templates);
+	this.env = new nunjucks.Environment(new nunjucks.FileSystemLoader(this.templatesPath));
 };
 
 Dome.prototype.buildDependencies = function() {
@@ -60,6 +60,7 @@ Dome.prototype.buildDependencies = function() {
 
 	for(dir in this.tasks) {
 		var task = this.tasks[dir];
+		fileTools.addDependence(dependencies, path.join(this.templatesPath, (task.template || this.defaultTemplate)), dir);
 		fileTools.addDependence(dependencies, task.content, dir);
 	}
 };
